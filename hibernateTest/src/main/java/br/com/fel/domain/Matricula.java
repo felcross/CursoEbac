@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 
 
 @Entity
-@Table(name ="TB_CURSO")
+@Table(name ="TB_MATRICULA")
 public class Matricula {
 	
 	@Id
@@ -28,6 +28,8 @@ public class Matricula {
 	private Instant dataMatricula;
 	@Column(name="STATUS", length = 10, nullable = false)
 	private String status;
+	
+	
 	public Long getId() {
 		return id;
 	}
