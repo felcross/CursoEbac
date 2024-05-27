@@ -6,13 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import br.com.fel.dao.Persistente;
+
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 
 @Entity
 @Table(name ="TB_CURSO")
-public class Curso {
+public class Curso implements Persistente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="curso_seq")

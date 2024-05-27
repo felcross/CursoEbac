@@ -1,54 +1,60 @@
 package br.com.fel.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.fel.domain.Curso;
 
 
-public class CursoDao extends GenericDao<Curso,Long> implements ICursoDao{
 
+
+public abstract class GenericDao<T extends Persistente, E extends Serializable> implements IGenericDao<T,E>  {
+
+	 
 	@Override
-	public Boolean cadastrar(Curso curso) throws Exception {
-	/*	EntityManagerFactory entityManagerFactory = 
+	public Boolean cadastrar(T entity) throws Exception {
+		EntityManagerFactory entityManagerFactory = 
 		Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
-		entityManager.persist(curso);
+		entityManager.persist(entity);
 		entityManager.getTransaction().commit();
 		 
 		entityManager.close(); 
-		entityManagerFactory.close();*/
-		 
+		entityManagerFactory.close();
+		
 		return true;
 	}
+	
+	 public GenericDao() {
+	        
+	    }
 
-	@Override
-	public void atualizar(Curso curso) throws Exception {
+
+	public void atualizar(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		return;
 	}
 
-	@Override
-	public Curso buscar(Long valor) throws Exception { 
+	
+	public T buscar(Long valor) throws Exception { 
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public List<Curso> buscarTodos() throws Exception {
+
+	public List<T> buscarTodos() throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void excluir(Curso curso) throws Exception {
+
+	public void excluir(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		return;
 	}
-
 }

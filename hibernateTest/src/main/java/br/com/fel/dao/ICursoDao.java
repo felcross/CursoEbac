@@ -6,11 +6,8 @@ import br.com.fel.domain.Curso;
 
 
 
-public interface ICursoDao {
+
+public interface ICursoDao extends IGenericDao<Curso, Long>{
 	
-	public Curso cadastrar(Curso curso) throws Exception;
-	public Integer atualizar(Curso curso) throws Exception;
-	public Curso buscar(String code) throws Exception;
-	public List<Curso> buscarTodos() throws Exception;
-	public Integer excluir(Curso curso) throws Exception;
+	
 }
