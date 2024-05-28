@@ -20,7 +20,7 @@ public abstract class GenericDao<T extends Persistente, E extends Serializable> 
 		Persistence.createEntityManagerFactory("ExemploJPA");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		entityManager.getTransaction().begin();
+		entityManager.getTransaction().begin(); 
 		entityManager.persist(entity);
 		entityManager.getTransaction().commit();
 		 
@@ -30,7 +30,7 @@ public abstract class GenericDao<T extends Persistente, E extends Serializable> 
 		return true;
 	}
 	
-	 public GenericDao() {
+	 public GenericDao() { 
 	        
 	    }
 

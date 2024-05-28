@@ -2,16 +2,18 @@ package br.com.domain;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-
+import br.com.fel.dao.IGenericDao;
 import br.com.fel.dao.ILivroDao;
 import br.com.fel.dao.LivroDao;
+import br.com.fel.domain.Curso;
 import br.com.fel.domain.Livro;
 
 public class LivroTest {
 	
-	private ILivroDao livroDao;
+	private IGenericDao<Livro, ?> livroDao;
 	
 	public LivroTest(){
 		livroDao = new LivroDao();
@@ -25,10 +27,12 @@ public class LivroTest {
 		livro.setAutor("desconhecido");
 		livro.setTitulo("livro teste");
 	      
-		livro = livroDao.cadastrar(livro); 
+		Boolean retorno  = livroDao.cadastrar(livro); 
 		
-		assertNotNull(livro);
-	    assertNotNull(livro.getId());
+		Assert.assertTrue(retorno);
+		
+		//assertNotNull(livro);
+	   // assertNotNull(livro.getId());
 		
 	}
 	

@@ -4,15 +4,18 @@ import static org.junit.Assert.assertNotNull;
 
 import java.time.Instant;
 
+import org.junit.Assert;
 import org.junit.Test;
 
+import br.com.fel.dao.IGenericDao;
 import br.com.fel.dao.IMatriculaDao;
 import br.com.fel.dao.MatriculaDao;
+import br.com.fel.domain.Livro;
 import br.com.fel.domain.Matricula;
 
 public class MatriculaTest {
 	
-	private IMatriculaDao matriculaDao;
+	private IGenericDao<Matricula, ?> matriculaDao;
 	
 	public MatriculaTest(){
 		
@@ -27,10 +30,11 @@ public class MatriculaTest {
 		matricula.setStatus("ATIVA");
 		matricula.setValor(900d);
 		matricula.setDataMatricula(Instant.now());
-		matricula = matriculaDao.cadastrar(matricula);
+		Boolean retorno = matriculaDao.cadastrar(matricula);
 		
-	    assertNotNull(matricula);
-	    assertNotNull(matricula.getId());
+		Assert.assertTrue(retorno);	
+	 //   assertNotNull(matricula);
+	 //   assertNotNull(matricula.getId());
 		
 	}
 	

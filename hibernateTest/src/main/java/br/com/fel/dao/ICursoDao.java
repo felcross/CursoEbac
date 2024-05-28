@@ -7,7 +7,9 @@ import br.com.fel.domain.Curso;
 
 
 
+
 public interface ICursoDao extends IGenericDao<Curso, Long>{
 	
+
 	
 }

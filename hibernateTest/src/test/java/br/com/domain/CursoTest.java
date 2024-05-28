@@ -25,9 +25,9 @@ public class CursoTest {
 		curso.setCodigo("A1");
 		curso.setDescricao("curso teste");
 		curso.setNome("curso java ");
-		Boolean  curso1 = cursoDao.cadastrar(curso); 
+		Boolean  retorno = cursoDao.cadastrar(curso); 
 		
-	    Assert.assertTrue(curso1);
+	    Assert.assertTrue(retorno);
 	   // assertNotNull(curso);
 	   // assertNotNull(curso.getId());
 		
