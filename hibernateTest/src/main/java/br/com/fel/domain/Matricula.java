@@ -2,12 +2,17 @@ package br.com.fel.domain;
 
 
 import java.time.Instant;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.ForeignKey;
 
 import br.com.fel.dao.Persistente;
 
@@ -31,6 +36,11 @@ public class Matricula implements Persistente {
 	private Instant dataMatricula;
 	@Column(name="STATUS", length = 10, nullable = false)
 	private String status;
+	
+	@ManyToOne
+	@JoinColumn(name="id_curso_fk", foreignKey = @ForeignKey(name="fk_curso_matricula"),
+	referencedColumnName="id", nullable = false)
+	private Curso curso;
 	
 	
 	public Long getId() {

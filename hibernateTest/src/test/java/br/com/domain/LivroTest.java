@@ -24,7 +24,7 @@ public class LivroTest {
 	public void cadastrar() throws Exception {
 		Livro livro = new Livro();
 		livro.setCodigo("A34");
-		livro.setAutor("desconhecido");
+		livro.setAutor("desconhecido"); 
 		livro.setTitulo("livro teste");
 	      
 		Boolean retorno  = livroDao.cadastrar(livro); 

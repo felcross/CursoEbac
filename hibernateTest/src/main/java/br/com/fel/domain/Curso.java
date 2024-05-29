@@ -1,9 +1,12 @@
 package br.com.fel.domain;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import br.com.fel.dao.Persistente;
@@ -27,6 +30,9 @@ public class Curso implements Persistente {
 	private String nome;
 	@Column(name="DESCRICAO", length = 100, nullable = false)
 	private String descricao; 
+	
+	@OneToMany(mappedBy="curso") 
+	private List<Matricula> matriculas; 
 	
 	public Curso(Long id, String codigo, String nome, String descricao) {
 		this.id = id;
@@ -59,6 +65,14 @@ public class Curso implements Persistente {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	public List<Matricula> getMatriculas() {
+		return matriculas;
+	}
+	public void setMatriculas(List<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
+	
+	
 	
 	
 
