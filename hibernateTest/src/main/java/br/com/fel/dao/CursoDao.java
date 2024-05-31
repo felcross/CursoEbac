@@ -9,7 +9,13 @@ import javax.persistence.Persistence;
 import br.com.fel.domain.Curso;
 
 
+
+
 public class CursoDao extends GenericDao<Curso,Long> implements ICursoDao{
 
+	@Override
+	public Class<Curso> getTipoClasse() {
+		return Curso.class;
+	}
 
 }

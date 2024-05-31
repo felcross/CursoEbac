@@ -7,13 +7,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import br.com.fel.domain.Curso;
+
+
+
 
 
 
 
 public abstract class GenericDao<T extends Persistente, E extends Serializable> implements IGenericDao<T,E>  {
 
-	 
+	 public abstract Class<T> getTipoClasse();
+
 	@Override
 	public Boolean cadastrar(T entity) throws Exception {
 		EntityManagerFactory entityManagerFactory = 
@@ -34,16 +39,36 @@ public abstract class GenericDao<T extends Persistente, E extends Serializable> 
 	        
 	    }
 
-
-	public void atualizar(T entity) throws Exception {
-		// TODO Auto-generated method stub
-		return;
+	@Override
+	public T atualizar(T entity) throws Exception {
+		EntityManagerFactory entityManagerFactory = 
+		Persistence.createEntityManagerFactory("ExemploJPA");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		entityManager.getTransaction().begin();
+		entity = entityManager.merge(entity);
+		entityManager.getTransaction().commit();
+		
+		entityManager.close();
+		entityManagerFactory.close();
+		return entity;
+				
 	}
 
-	
+	@Override
 	public T buscar(Long valor) throws Exception { 
-		// TODO Auto-generated method stub
-		return null;
+		EntityManagerFactory entityManagerFactory = 
+			    Persistence.createEntityManagerFactory("ExemploJPA");
+				EntityManager entityManager = entityManagerFactory.createEntityManager();
+				
+				entityManager.getTransaction().begin();
+				T entity = entityManager.find(getTipoClasse(), valor);
+				entityManager.getTransaction().commit();
+				
+				entityManager.close();
+				entityManagerFactory.close();
+				
+				return entity;
 	}
 
 
@@ -57,4 +82,6 @@ public abstract class GenericDao<T extends Persistente, E extends Serializable> 
 		// TODO Auto-generated method stub
 		return;
 	}
+
+	
 }

@@ -12,5 +12,8 @@ import br.com.fel.domain.Matricula;
 
 public class MatriculaDao extends GenericDao<Matricula,Long> implements IMatriculaDao{
 
-
+	@Override
+	public Class<Matricula> getTipoClasse() {
+		return Matricula.class;
+	}
 }

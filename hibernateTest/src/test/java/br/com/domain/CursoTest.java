@@ -10,6 +10,7 @@ import br.com.fel.dao.ICursoDao;
 import br.com.fel.dao.IGenericDao;
 import br.com.fel.domain.Curso;
 
+
 public class CursoTest {
 	
 	private IGenericDao<Curso, ?> cursoDao;
@@ -30,6 +31,20 @@ public class CursoTest {
 	    Assert.assertTrue(retorno);
 	   // assertNotNull(curso);
 	   // assertNotNull(curso.getId());
+		
+	}
+	
+	@Test
+	public void buscar() throws Exception {
+		Curso curso = new Curso();
+		curso.setCodigo("A1");
+		curso.setDescricao("curso teste");
+		curso.setNome("curso java ");
+		cursoDao.cadastrar(curso);
+		
+		Curso cursoConsultado = cursoDao.buscar(curso.getId());
+		Assert.assertNotNull(cursoConsultado);
+		
 		
 	}
 	 
