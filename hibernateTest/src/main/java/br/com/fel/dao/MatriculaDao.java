@@ -16,4 +16,10 @@ public class MatriculaDao extends GenericDao<Matricula,Long> implements IMatricu
 	public Class<Matricula> getTipoClasse() {
 		return Matricula.class;
 	}
+
+	@Override
+	public List<Matricula> buscarTodos() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

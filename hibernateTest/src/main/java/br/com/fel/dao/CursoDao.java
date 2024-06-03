@@ -18,4 +18,20 @@ public class CursoDao extends GenericDao<Curso,Long> implements ICursoDao{
 		return Curso.class;
 	}
 
+	@Override
+	public List<Curso> buscarTodos() throws Exception {
+		EntityManagerFactory entityManagerFactory = 
+				Persistence.createEntityManagerFactory("ExemploJPA");
+				EntityManager entityManager = entityManagerFactory.createEntityManager();
+				
+				entityManager.getTransaction().begin();
+				List<Curso> list = 
+						entityManager.createQuery("SELECT c FROM TB_CURSO c", Curso.class).getResultList();     
+				entityManager.getTransaction().commit();
+				
+				entityManager.close();
+				entityManagerFactory.close();
+				return list; 
+	}
+
 }

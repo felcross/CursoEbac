@@ -15,10 +15,13 @@ import br.com.fel.domain.Curso;
 
 
 
+
+
 public abstract class GenericDao<T extends Persistente, E extends Serializable> implements IGenericDao<T,E>  {
 
 	 public abstract Class<T> getTipoClasse();
-
+	 
+	 	
 	@Override
 	public Boolean cadastrar(T entity) throws Exception {
 		EntityManagerFactory entityManagerFactory = 
@@ -68,14 +71,12 @@ public abstract class GenericDao<T extends Persistente, E extends Serializable> 
 				entityManager.close();
 				entityManagerFactory.close();
 				
-				return entity;
+				return entity; 
 	}
 
 
-	public List<T> buscarTodos() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+	public abstract List<T> buscarTodos() throws Exception;
 
 
 	public void excluir(T entity) throws Exception {

@@ -17,5 +17,11 @@ public class LivroDao extends GenericDao<Livro,Long> implements ILivroDao {
 		return Livro.class;
 	}
 
+	@Override
+	public List<Livro> buscarTodos() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	} 
 
-}
+
+} 
