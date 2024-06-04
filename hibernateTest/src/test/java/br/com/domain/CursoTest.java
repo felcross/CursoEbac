@@ -18,6 +18,7 @@ import br.com.fel.domain.Curso;
 
 
 
+
 public class CursoTest {
 	
 	private IGenericDao<Curso, ?> cursoDao;
@@ -97,8 +98,26 @@ public class CursoTest {
 		Collection<Curso> list = cursoDao.buscarTodos();
 		assertTrue(list != null);
 		assertTrue(list.size() == 2);
-		
+		 
 	}
+	
+	@Test
+	public void excluirCliente() throws Exception {
+		Curso curso = new Curso();
+		curso.setCodigo("A1");
+		curso.setDescricao("curso teste");
+		curso.setNome("curso java ");
+		
+		Boolean  retorno = cursoDao.cadastrar(curso);
+		Assert.assertTrue(retorno);
+		Curso cursoConsultado = cursoDao.buscar(curso.getId());		
+		Assert.assertNotNull(cursoConsultado);
+		
+		cursoDao.excluir(cursoConsultado);
+		cursoConsultado = cursoDao.buscar(curso.getId());
+		Assert.assertNull(cursoConsultado);
+	}
+	
 	 
 	
 }

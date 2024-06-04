@@ -17,10 +17,11 @@ import br.com.fel.domain.Curso;
 
 
 
+
 public abstract class GenericDao<T extends Persistente, E extends Serializable> implements IGenericDao<T,E>  {
 
 	 public abstract Class<T> getTipoClasse();
-	 
+	 public abstract List<T> buscarTodos() throws Exception;
 	 	
 	@Override
 	public Boolean cadastrar(T entity) throws Exception {
@@ -76,12 +77,22 @@ public abstract class GenericDao<T extends Persistente, E extends Serializable> 
 
 
 
-	public abstract List<T> buscarTodos() throws Exception;
+	
 
 
-	public void excluir(T entity) throws Exception {
-		// TODO Auto-generated method stub
-		return;
+	@Override
+	public void excluir(T entity) {
+		EntityManagerFactory entityManagerFactory = 
+				Persistence.createEntityManagerFactory("ExemploJPA");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		entityManager.getTransaction().begin();
+		entity = entityManager.merge(entity);
+		entityManager.remove(entity);
+		entityManager.getTransaction().commit();
+		
+		entityManager.close();
+		entityManagerFactory.close();
 	}
 
 	

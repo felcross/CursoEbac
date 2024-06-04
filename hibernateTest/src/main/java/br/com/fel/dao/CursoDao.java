@@ -26,11 +26,11 @@ public class CursoDao extends GenericDao<Curso,Long> implements ICursoDao{
 				
 				entityManager.getTransaction().begin();
 				List<Curso> list = 
-						entityManager.createQuery("SELECT c FROM TB_CURSO c", Curso.class).getResultList();     
+						entityManager.createQuery("SELECT c FROM Curso c", Curso.class).getResultList();     
 				entityManager.getTransaction().commit();
 				
 				entityManager.close();
-				entityManagerFactory.close();
+				entityManagerFactory.close();  
 				return list; 
 	}
 
