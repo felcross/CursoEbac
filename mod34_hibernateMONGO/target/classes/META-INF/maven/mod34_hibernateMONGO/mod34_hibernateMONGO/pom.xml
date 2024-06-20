@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project >
   <modelVersion>4.0.0</modelVersion>
   <groupId>mod34_hibernateMONGO</groupId>
   <artifactId>mod34_hibernateMONGO</artifactId>
@@ -35,15 +36,16 @@
         <dependency>
             <groupId>org.hibernate.ogm</groupId>
             <artifactId>hibernate-ogm-mongodb</artifactId>
-            <version>${hibernate.version}</version>
+               <version>${hibernate.version}</version>
         </dependency>
         <!-- Neo4j -->
-        <dependency>
+         <dependency>
             <groupId>org.hibernate.ogm</groupId>
             <artifactId>hibernate-ogm-neo4j</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
         <!-- Narayana JTA -->
+         
         <dependency>
             <groupId>org.jboss.narayana.jta</groupId>
             <artifactId>narayana-jta</artifactId>
@@ -79,13 +81,22 @@
 		    <version>4.12</version>
 		    <scope>test</scope>
 		</dependency>
+		
+		
+  
+		
+		
+		<!--<dependency>
+   <groupId>org.mongodb</groupId>
+    <artifactId>mongo-java-driver</artifactId>
+    <version>3.0.4</version>
+      </dependency>-->
     </dependencies>
 
-    <properties>
+   <properties>
         <hibernate.version>5.4.1.Final</hibernate.version>
         <fest-assert.version>1.4</fest-assert.version>
         <narayana-jta.version>5.5.23.Final</narayana-jta.version>
     </properties>
-  
   
 </project>

@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package br.com.felMongo.test;
 
 import static org.junit.Assert.assertNotNull;
@@ -27,8 +25,9 @@ public class CursoTest {
 		curso.setDescricao("CURSO TESTE - Hibernate OGM");
 		curso.setNome("Curso de Java Backend");
 		curso = cursoDao.cadastrar(curso);
-		
+		 
 		assertNotNull(curso);
 		assertNotNull(curso.getId());
 	}
 }
+ 

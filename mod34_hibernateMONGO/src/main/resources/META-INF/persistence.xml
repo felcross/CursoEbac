@@ -14,6 +14,8 @@
 		
 		<!--<provider>org.hibernate.ejb.HibernatePersistence</provider>  -->
 	    <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+	    
+	     <!--<class>br.com.felMongo.domain.Curso</class> --> 	
 
 		   <!--<persistence-unit name="myPersistenceUnit" transaction-type="RESOURCE_LOCAL"> --> 		
 		
@@ -21,8 +23,8 @@
 		 	<property name="hibernate.transaction.jta.platform" 
 		 		value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
 		 	
-		 	<property name="hibernate.ogm.datastore.database" value="mongodb_ebac" />
-		 	<property name="hibernate.ogm.mongodb.authentication_database" value="mongodb_ebac" />
+		 	<property name="hibernate.ogm.datastore.database" value="Ebac" />
+		 	<property name="hibernate.ogm.mongodb.authentication_database" value="" />
 		 	<property name="hibernate.ogm.datastore.host" value="127.0.0.1" />
 		 	<property name="hibernate.ogm.datastore.username" value="admin"/>
             <property name="hibernate.ogm.datastore.password" value="admin"/>
